@@ -1,6 +1,29 @@
 //util body functions
 #include "util.h"
+#include <vector>
+#include <assert.h>
+#include <iostream>
+#include <iomanip>
 
+using namespace std;
+
+
+void printBuff(const buffer& b){
+
+	for (size_t i=0; i<b.size(); i++)
+		cout << setfill('0') << setw(2) << hex << +b[i];
+	cout << endl;
+}
+
+buffer fixedXOR(const buffer& b1, const buffer& b2){
+	assert(b1.size() == b2.size());
+	buffer b3(b1.size());
+	for (size_t i=0; i<b1.size(); i++){
+		b3[i] = b1[i] ^ b2[i];
+	}
+
+	return b3;
+}
 
 vector<uint8_t> parseHexToBinary(string input_data){
   vector<uint8_t> binaryData;
