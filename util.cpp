@@ -8,10 +8,17 @@
 using namespace std;
 
 
-void printBuff(const buffer& b){
+void printBuff_hex(const buffer& b){
 
 	for (size_t i=0; i<b.size(); i++)
 		cout << setfill('0') << setw(2) << hex << +b[i];
+	cout << endl;
+}
+
+void printBuff_bin(const buffer& b){
+
+	for (size_t i=0; i<b.size(); i++)
+		cout << b[i];
 	cout << endl;
 }
 
